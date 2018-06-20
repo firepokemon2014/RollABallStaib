@@ -2,14 +2,14 @@
 using System.Collections;
 
 public class Pacer : MonoBehaviour {
-    public float speed  = 5.0f;
-    private float zMax = 7.5f;
-    private float zMin = 7.5f;  // starting position
-    private int direction = 1; // postive to start
+    public  float speed     = 5.0f;
+    private float zMax      = 7.5f;
+    private float zMin      = -7.5f;  // starting position
+    private int   direction = 1; // postive to start
 
     // Update is called once per frame
     void Update() {
-        float zNew = transform.position.z + direction * speed * Time.deltaTime
+        float zNew = transform.position.z + direction * speed * Time.deltaTime;
 
         if (zNew >= zMax) {
             zNew = zMax;
@@ -17,7 +17,7 @@ public class Pacer : MonoBehaviour {
         }
         else if (zNew <= zMin) {
             zNew = zMin;
-            direction *= -1
+            direction *= -1;
         }
 
         transform.position = new Vector3(7.5f, 0.75f, zNew);
